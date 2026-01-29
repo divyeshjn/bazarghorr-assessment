@@ -48,7 +48,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                         border: OutlineInputBorder(),
                       ),
                       validator: (value) =>
-                      value == null || value.isEmpty ? 'Required' : null,
+                          value == null || value.isEmpty ? 'Required' : null,
                       onSaved: (value) => name = value!,
                     ),
                     const SizedBox(height: 12),
@@ -60,8 +60,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                         border: OutlineInputBorder(),
                       ),
                       keyboardType: TextInputType.phone,
-                      validator: (value) =>
-                      value == null || value.length < 10
+                      validator: (value) => value == null || value.length < 10
                           ? 'Enter valid phone'
                           : null,
                       onSaved: (value) => phone = value!,
@@ -76,7 +75,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                       ),
                       maxLines: 3,
                       validator: (value) =>
-                      value == null || value.isEmpty ? 'Required' : null,
+                          value == null || value.isEmpty ? 'Required' : null,
                       onSaved: (value) => address = value!,
                     ),
 
@@ -92,10 +91,11 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     const SizedBox(height: 8),
 
                     ...cart.items.values.map(
-                          (item) => ListTile(
+                      (item) => ListTile(
                         title: Text(item.product.title),
                         trailing: Text(
                           '${item.quantity} x ₹${item.product.price}',
+                          style: TextStyle(fontSize: 16),
                         ),
                       ),
                     ),
@@ -108,19 +108,44 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Text(
-                  'Total: ₹ ${cart.totalPrice.toStringAsFixed(2)}',
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
+                Row(
+                  children: [
+                    const Text(
+                      'Total Billing:',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const Spacer(),
+                    Text(
+                      '₹ ${cart.totalPrice.toStringAsFixed(2)}',
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
                 ),
                 const SizedBox(height: 10),
                 ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(double.infinity, 42),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    backgroundColor: Colors.green,
+                  ),
                   onPressed: () {
                     _placeOrder(context);
                   },
-                  child: const Text('Place Order'),
+                  child: const Text(
+                    'Place Order',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -156,9 +181,9 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
     } catch (e) {
       debugPrint('ORDER ERROR: $e');
 
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Failed to place order: $e')),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text('Failed to place order: $e')));
     }
   }
 }

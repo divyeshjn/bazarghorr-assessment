@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../providers/cart_provider.dart';
+import '../../widgets/cart_item_tile.dart';
 import '../checkout/checkout_screen.dart';
 
 class CartScreen extends StatelessWidget {
@@ -19,28 +20,14 @@ class CartScreen extends StatelessWidget {
           Expanded(
             child: ListView(
               children: cart.items.values.map((item) {
-                return ListTile(
-                  leading: Image.network(item.product.image, width: 40),
-                  title: Text(item.product.title),
-                  subtitle: Text('₹ ${item.product.price}'),
-                  trailing: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      IconButton(
-                        icon: const Icon(Icons.remove),
-                        onPressed: () {
-                          cart.decreaseQuantity(item.product.id);
-                        },
-                      ),
-                      Text(item.quantity.toString()),
-                      IconButton(
-                        icon: const Icon(Icons.add),
-                        onPressed: () {
-                          cart.increaseQuantity(item.product.id);
-                        },
-                      ),
-                    ],
-                  ),
+                return CartItemTile(
+                  item: item,
+                  onDecrease: () {
+                    cart.decreaseQuantity(item.product.id);
+                  },
+                  onIncrease: () {
+                    cart.increaseQuantity(item.product.id);
+                  },
                 );
               }).toList(),
             ),
