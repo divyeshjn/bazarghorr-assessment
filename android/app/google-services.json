@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "706405371112",
+    "project_id": "bazarghor-assesment",
+    "storage_bucket": "bazarghor-assesment.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:706405371112:android:1cd45be0ac244ab10b8d5d",
+        "android_client_info": {
+          "package_name": "com.example.bazarghor"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNfQd4gh00lZWYIwa21qYFkqMlfs5c_bA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
