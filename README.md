@@ -5,16 +5,33 @@ The app demonstrates Flutter fundamentals, state management, API handling, Fireb
 
 ---
 
-## 📱 Project Overview
+## 📱 App Screens Overview
 
-The app allows users to:
-- View a list of grocery products
-- Add products to a cart
-- Manage cart items (increase / decrease quantity)
-- Checkout and place an order
-- Store order details in Firebase Firestore
+### 🛍️ Product Listing Screen
+Browse available grocery products displayed in a clean GridView layout and add items to the cart.
 
-This project focuses on **clean architecture, reusable widgets, and scalable state management**.
+<img width="377" height="798" alt="Product Screen" src="https://github.com/user-attachments/assets/7d39d7a4-7f43-4ed1-8720-1b53ae1b05f0" />
+
+---
+
+### 🛒 Cart Screen
+View selected products, increase or decrease item quantity, and see real-time total price updates.
+
+<img width="376" height="804" alt="Cart Screen" src="https://github.com/user-attachments/assets/98205b1e-c16c-481a-93d9-b795251c1dfb" />
+
+---
+
+### ✅ Checkout Screen
+Enter delivery details, review the order summary, and place the order with basic form validation.
+
+<img width="380" height="799" alt="Checkout Screen" src="https://github.com/user-attachments/assets/810b3df0-66d5-4fee-8137-4c888ae4db77" />
+
+---
+
+### 🔥 Firebase Firestore – Order Stored
+Order details successfully stored in Firebase Firestore after checkout.
+
+<img width="1448" height="725" alt="Firestore Order Data" src="https://github.com/user-attachments/assets/f017b3a3-b862-4e6f-b83d-f7e14fcfaa41" />
 
 ---
 
