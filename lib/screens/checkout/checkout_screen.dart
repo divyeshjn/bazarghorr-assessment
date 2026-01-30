@@ -22,7 +22,11 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
     final cart = context.watch<CartProvider>();
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Checkout')),
+      appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.white),
+        backgroundColor: Colors.green,
+        title: const Text('Checkout', style: TextStyle(color: Colors.white)),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -141,14 +145,12 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                   },
                   child: const Text(
                     'Place Order',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
-                    ),
+                    style: TextStyle(color: Colors.white, fontSize: 18),
                   ),
                 ),
               ],
             ),
+            SizedBox(height: 8),
           ],
         ),
       ),

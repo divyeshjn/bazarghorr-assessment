@@ -20,12 +20,7 @@ class ProductCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Expanded(
-              child: Image.network(
-                product.image,
-                fit: BoxFit.contain,
-              ),
-            ),
+            Expanded(child: Image.network(product.image, fit: BoxFit.contain)),
             const SizedBox(height: 8),
             Text(
               product.title,
@@ -39,8 +34,18 @@ class ProductCard extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  minimumSize: const Size(double.infinity, 42),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  backgroundColor: Colors.green,
+                ),
                 onPressed: onAddToCart,
-                child: const Text('Add to Cart'),
+                child: const Text(
+                  'Add to Cart',
+                  style: TextStyle(color: Colors.white, fontSize: 16),
+                ),
               ),
             ),
           ],

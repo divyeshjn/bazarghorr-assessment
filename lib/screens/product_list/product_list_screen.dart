@@ -31,29 +31,36 @@ class _ProductListScreenState extends State<ProductListScreen> {
 
     final filteredProducts = productProvider.products.where((product) {
       if (_searchQuery.isEmpty) return true;
-      return product.title
-          .toLowerCase()
-          .contains(_searchQuery.toLowerCase());
+      return product.title.toLowerCase().contains(_searchQuery.toLowerCase());
     }).toList();
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.green,
         title: _isSearching
             ? TextField(
-          autofocus: true,
-          decoration: const InputDecoration(
-            hintText: 'Search products...',
-            border: InputBorder.none,
-          ),
-          onChanged: (value) {
-            setState(() {
-              _searchQuery = value;
-            });
-          },
-        )
-            : const Text('Products'),
+                cursorColor: Colors.white,
+                style: TextStyle(color: Colors.white),
+                autofocus: true,
+                decoration: const InputDecoration(
+                  iconColor: Colors.white,
+                  hintStyle: TextStyle(color: Colors.white),
+                  hintText: 'Search products...',
+                  border: InputBorder.none,
+                ),
+                onChanged: (value) {
+                  setState(() {
+                    _searchQuery = value;
+                  });
+                },
+              )
+            : const Text(
+                'Products',
+                style: TextStyle(color: Colors.white, fontSize: 24),
+              ),
         actions: [
           IconButton(
+            color: Colors.white,
             icon: Icon(_isSearching ? Icons.close : Icons.search),
             onPressed: () {
               setState(() {
@@ -63,6 +70,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
             },
           ),
           IconButton(
+            color: Colors.white,
             icon: const Icon(Icons.shopping_cart),
             onPressed: () {
               Navigator.push(
